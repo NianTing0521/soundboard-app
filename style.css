@@ -1,57 +1,85 @@
-/* 讓整體容器佔滿全螢幕高度，不產生捲軸 */
+/* 全域設定：確保邊距計算正確 */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* 移除手機點擊時的預設灰色外框 */
+}
+
 body {
     margin: 0;
     padding: 15px;
-    height: 100vh;
+    height: 100vh; /* 鎖定螢幕高度 */
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+    flex-direction: column; /* 垂直排列：標題 -> 網格 -> 停止鈕 */
     background-color: #121212;
-    overflow: hidden; /* 防止手機瀏覽器震動或滑動 */
-}
-
-/* 讓標題縮小，留空間給按鈕 */
-h1 {
-    font-size: 1.2rem;
     color: white;
-    text-align: center;
-    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden; /* 徹底禁止捲軸，防止橡皮筋特效 */
 }
 
-/* 讓按鈕填滿螢幕的關鍵 CSS */
+/* 標題區域 */
+h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px 0 15px 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 音效按鈕容器 */
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    /* 自動填滿剩餘高度 */
-    flex: 1; 
-    gap: 15px;
-    margin-bottom: 15px;
-    /* 確保按鈕內容不會溢出 */
-    min-height: 0; 
+    grid-template-columns: repeat(2, 1fr); /* 兩欄均分 */
+    /* 這裡使用 1fr 讓每一列自動平分剩餘高度 */
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 12px;
+    flex: 1; /* 關鍵：自動填滿標題與停止鈕之間的所有空間 */
+    margin-bottom: 20px;
 }
 
+/* 個別音效按鈕 */
 .btn {
-    width: 100%;  /* 寬度撐滿 */
-    height: 100%; /* 高度撐滿 */
-    font-size: 2rem; /* 文字加大 */
+    width: 100%;
+    height: 100%;
+    background-color: #2c2c2e;
+    color: #00e5ff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.1s;
+    user-select: none; /* 防止快速連續點擊時選取到文字 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* 點擊時的下陷感 */
+/* 按鈕按下時的反饋 */
 .btn:active {
-    transform: scale(0.95);
-    background: #00e5ff;
+    transform: scale(0.92); /* 縮小視覺效果，像真的按下去 */
+    background-color: #00e5ff;
     color: #000;
 }
 
 /* 底部停止按鈕 */
 #stop-btn {
-    height: 60px;
+    height: 65px; /* 給予足夠大的點擊區域 */
     width: 100%;
-    background-color: #ff3b30;
+    background: linear-gradient(145deg, #ff3b30, #d32f2f);
     color: white;
-    border-radius: 15px;
-    font-size: 1.1rem;
     border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
+    cursor: pointer;
+    transition: filter 0.2s;
 }
 
-
+#stop-btn:active {
+    filter: brightness(0.8);
+    transform: scale(0.98);
+}
