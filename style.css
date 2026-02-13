@@ -1,77 +1,65 @@
-/* 基礎設定：讓背景充滿全螢幕，禁止捲動 */
+/* 讓整體容器佔滿全螢幕高度，不產生捲軸 */
 body {
     margin: 0;
-    padding: 20px;
+    padding: 15px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #1a1a1a; /* 深色背景更專業 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box;
-    overflow: hidden;
+    background-color: #121212;
+    overflow: hidden; /* 防止手機瀏覽器震動或滑動 */
 }
 
+/* 讓標題縮小，留空間給按鈕 */
 h1 {
-    color: #eee;
-    text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    margin: 10px 0;
 }
 
-/* 網格系統：讓按鈕自動撐大 */
+/* 關鍵：使用 Grid 讓按鈕平分空間 */
 .soundboard {
-    flex: 1; /* 佔滿剩餘空間 */
+    flex-grow: 1; /* 自動撐開佔滿中間區域 */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 手機版 2 欄 */
-    grid-template-rows: repeat(auto-fill, minmax(120px, 1fr)); /* 自動計算高度 */
+    grid-template-columns: repeat(2, 1fr); /* 兩欄設計 */
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); /* 自動計算高度 */
     gap: 15px;
-    width: 100%;
+    margin-bottom: 15px;
 }
 
-/* 專業按鈕樣式 */
+/* 強化按鈕點擊面積與視覺 */
 .btn {
-    background: linear-gradient(145deg, #333, #222);
-    border: 2px solid #444;
-    border-radius: 15px;
-    color: #00d4ff; /* 霓虹色系 */
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(145deg, #1e1e1e, #252525);
+    color: #00e5ff;
+    box-shadow: 5px 5px 15px #080808, -2px -2px 10px #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: transform 0.05s ease;
     cursor: pointer;
-    transition: all 0.1s ease;
-    box-shadow: 0 4px 0 #000; /* 底部陰影製造厚度 */
     -webkit-tap-highlight-color: transparent; /* 移除手機點擊藍框 */
 }
 
-/* 加上 Emoji 圖示的大小調整 */
-.btn span {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-}
-
-/* 按下的效果：模擬實體按鍵下陷 */
+/* 點擊時的下陷感 */
 .btn:active {
-    transform: translateY(4px);
-    box-shadow: 0 0 0 #000;
-    background: #00d4ff;
-    color: #1a1a1a;
-    border-color: #fff;
+    transform: scale(0.95);
+    background: #00e5ff;
+    color: #000;
 }
 
-/* 底部停止按鈕優化 */
+/* 底部停止按鈕 */
 #stop-btn {
-    margin-top: 20px;
     height: 60px;
     width: 100%;
-    background-color: #ff4757;
+    background-color: #ff3b30;
     color: white;
-    border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
+    border: none;
 }
-
