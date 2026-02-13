@@ -1,12 +1,12 @@
-const CACHE_NAME = 'soundboard-v1';
+const CACHE_NAME = 'soundboard-v2';
 const ASSETS = [
   'index.html',
   'style.css',
   'script.js',
-  'sounds/applause.mp3', // 列出所有你想離線使用的音效
-  'sounds/laugh.mp3',
-  'sounds/drum.mp3',
-  'sounds/fail.mp3'
+  'sounds/鵲鴝.mp3', // 列出所有你想離線使用的音效
+  'sounds/火車啟動.mp3',
+  'sounds/升天.mp3',
+  'sounds/天亮.mp3'
 ];
 
 // 安裝並快取檔案
@@ -23,4 +23,5 @@ self.addEventListener('fetch', (e) => {
       return response || fetch(e.request);
     })
   );
+
 });
