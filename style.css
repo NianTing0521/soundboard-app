@@ -21,10 +21,13 @@ h1 {
 /* 讓按鈕填滿螢幕的關鍵 CSS */
 .soundboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 兩欄 */
-    grid-template-rows: repeat(auto-fill, minmax(120px, 1fr)); /* 自動計算高度，最小 120px */
+    grid-template-columns: repeat(2, 1fr); 
+    /* 自動填滿剩餘高度 */
+    flex: 1; 
     gap: 15px;
-    height: 70vh; /* 讓容器佔據螢幕 70% 的高度 */
+    margin-bottom: 15px;
+    /* 確保按鈕內容不會溢出 */
+    min-height: 0; 
 }
 
 .btn {
@@ -50,4 +53,5 @@ h1 {
     font-size: 1.1rem;
     border: none;
 }
+
 
