@@ -1,7 +1,7 @@
 {
   "name": "我的創意音效板",
   "short_name": "音效板",
-  "start_url": "index.html",
+  "start_url": ./index.html,
   "display": "standalone",
   "background_color": "#2c3e50",
   "theme_color": "#3498db",
@@ -17,4 +17,5 @@
       "type": "image/png"
     }
   ]
+
 }
