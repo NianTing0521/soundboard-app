@@ -1,4 +1,4 @@
-const CACHE_NAME = 'soundboard-v5';
+const CACHE_NAME = 'soundboard-v5.1';
 const ASSETS = [
   'index.html',
   'style.css',
@@ -25,6 +25,7 @@ self.addEventListener('fetch', (e) => {
   );
 
 });
+
 
 
 
