@@ -18,32 +18,19 @@ h1 {
     margin: 10px 0;
 }
 
-/* 關鍵：使用 Grid 讓按鈕平分空間 */
+/* 讓按鈕填滿螢幕的關鍵 CSS */
 .soundboard {
-    flex-grow: 1; /* 自動撐開佔滿中間區域 */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 兩欄設計 */
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); /* 自動計算高度 */
+    grid-template-columns: repeat(2, 1fr); /* 兩欄 */
+    grid-template-rows: repeat(auto-fill, minmax(120px, 1fr)); /* 自動計算高度，最小 120px */
     gap: 15px;
-    margin-bottom: 15px;
+    height: 70vh; /* 讓容器佔據螢幕 70% 的高度 */
 }
 
-/* 強化按鈕點擊面積與視覺 */
 .btn {
-    font-size: 1.4rem;
-    font-weight: bold;
-    border-radius: 20px;
-    border: none;
-    background: linear-gradient(145deg, #1e1e1e, #252525);
-    color: #00e5ff;
-    box-shadow: 5px 5px 15px #080808, -2px -2px 10px #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.05s ease;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* 移除手機點擊藍框 */
+    width: 100%;  /* 寬度撐滿 */
+    height: 100%; /* 高度撐滿 */
+    font-size: 2rem; /* 文字加大 */
 }
 
 /* 點擊時的下陷感 */
@@ -63,3 +50,4 @@ h1 {
     font-size: 1.1rem;
     border: none;
 }
+
